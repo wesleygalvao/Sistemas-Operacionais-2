@@ -1,5 +1,4 @@
-
-obj-m += rtc.o
+obj-m += keyboard_blink.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules

@@ -17,7 +17,7 @@ int init_module(void)
 	int hora, minuto, sec;
 	printk(KERN_INFO "Iniciando device driver do RTC\n");
 
-	inicio de regiao critica
+	//inicio de regiao critica
 	outb(4, 0x70);
         hora = inb(0x71);
 
@@ -26,7 +26,7 @@ int init_module(void)
 
 	outb(0, 0x70);
         sec = inb(0x71);
-	fim de regiao critica
+	//fim de regiao critica
 
 
 	printk(KERN_INFO "Leitura do RTC Hora = %d\n", bcd2bin(hora));
