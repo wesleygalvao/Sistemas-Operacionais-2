@@ -22,6 +22,7 @@
 #include <linux/tty.h>
 #include <linux/kd.h>
 #include <linux/vt.h>
+#include <linux/timer.h>
 #include <linux/console_struct.h>
 
 #define DRIVER_AUTHOR "Romain Porte <microjoe@mailoo.org>"
