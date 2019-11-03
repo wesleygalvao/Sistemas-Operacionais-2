@@ -1,4 +1,4 @@
-
+#!/bin/bash
 obj-m += rtc.o
 
 all:
