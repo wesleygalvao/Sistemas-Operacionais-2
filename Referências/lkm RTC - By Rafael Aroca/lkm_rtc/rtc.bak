@@ -1,0 +1,38 @@
+/*
+ *  hello-1.c - The simplest kernel module.
+ */
+#include <linux/module.h>	/* Needed by all modules */
+#include <linux/kernel.h>	/* Needed for KERN_INFO */
+
+
+unsigned bcd2bin(unsigned char val)
+{
+	return (val & 0x0f) + (val >> 4) * 10;
+}
+//EXPORT_SYMBOL(bcd2bin);
+
+
+int init_module(void)
+{
+	int val;
+	printk(KERN_INFO "Hello world 1.\n");
+
+	outb(4, 0x70);
+        val = inb(0x71);
+
+	printk(KERN_INFO "Hora BCD = %d\n", val);
+	printk(KERN_INFO "Hora Bin = %d\n", bcd2bin(val));
+
+	outb(2, 0x70);
+        val = inb(0x71);
+
+	printk(KERN_INFO "Minutos BCD= %d\n", val);
+	printk(KERN_INFO "Minutos Bin = %d\n", bcd2bin(val));
+
+	return 0;
+}
+
+void cleanup_module(void)
+{
+	printk(KERN_INFO "Goodbye world 1.\n");
+}
