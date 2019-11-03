@@ -1,1 +1,0 @@
-cmd_/home/rafael/Dropbox/UFSCar/DC/Disciplinas/SO2/lkm_rtc/rtc.ko := ld -r -m elf_x86_64 -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/rafael/Dropbox/UFSCar/DC/Disciplinas/SO2/lkm_rtc/rtc.ko /home/rafael/Dropbox/UFSCar/DC/Disciplinas/SO2/lkm_rtc/rtc.o /home/rafael/Dropbox/UFSCar/DC/Disciplinas/SO2/lkm_rtc/rtc.mod.o ;  true
