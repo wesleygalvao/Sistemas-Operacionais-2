@@ -37,7 +37,7 @@ static struct class *mychardev_class = NULL;
 static struct mychar_device_data mychardev_data[MAX_DEV];
 int g_time_interval = 10000;
 struct timer_list g_timer;
-int countador = 0;
+int counter = 0;
 int leitura;
 extern int fg_console;
 struct tty_driver *driver;
@@ -50,7 +50,7 @@ static int mychardev_uevent(struct device *dev, struct kobj_uevent_env *env)
 
 void TimerHandler(struct timer_list *t)
 {
-  if ((countador % 2) == 0){
+  if ((counter % 2) == 0){
     driver = vc_cons[fg_console].d->port.tty->driver;
     ((driver->ops)->ioctl) (vc_cons[fg_console].d->port.tty, KDSETLED, 0x02);
 	  printk(KERN_INFO "Led do Num Lock aceso!\n");
@@ -60,7 +60,7 @@ void TimerHandler(struct timer_list *t)
     ((driver->ops)->ioctl) (vc_cons[fg_console].d->port.tty, KDSETLED, 0x00);
 	  printk(KERN_INFO "Led do Num Lock apagado!\n");
 	}
-	countador++;
+	counter++;
 	
   mod_timer( &g_timer, jiffies + msecs_to_jiffies(g_time_interval));
 
