@@ -237,3 +237,5 @@ MODULE_AUTHOR("Rennes Freitas Souza");
 
 module_init(mychardev_init);
 module_exit(mychardev_exit);
+
+//
